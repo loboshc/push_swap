@@ -6,20 +6,20 @@
 
 void	exit_error(char *string)
 {
-	write(0,string,strlen(string));
+	write(0, string, strlen(string));
 	exit(EXIT_FAILURE);
 }
 
-int		ft_isdigit(int c)
+int	ft_isdigit(int c)
 {
 	if (c >= 48 && c <= 57)
 		return (1);
 	return (0);
 }
 
-int		ft_atoi(const char *n)
+int	ft_atoi(const char *n)
 {
-	long int i[3];
+	long int	i[3];
 
 	i[0] = 0;
 	i[2] = 0;
@@ -46,10 +46,9 @@ int		ft_atoi(const char *n)
 	return (i[2] * i[1]);
 }
 
-
-int		ft_number(const char *n)
+int	ft_number(const char *n)
 {
-	long int i[3];
+	long int	i[3];
 
 	i[0] = 0;
 	i[2] = 0;
@@ -72,30 +71,35 @@ int		ft_number(const char *n)
 			return (0);
 	}
 	if (!isdigit(n[i[0]]) && n[i[0]] != '\0')
-		exit_error("Error\n");
+		exit_error("Error\nInvalid arguments\n");
 	return (i[2] * i[1]);
 }
 
-
-void check_arg(int argc, char *argv[])
+void	check_arg(int argc, char *argv[])
 {
-	int i;
-	int negative; // 1 activo - 0 no activo - pasar a estructura
+	int	i;
+	int	tmp;
+	int	j;
 
-	i = 0;
+	i = -1;
 	argv++;
-	while (i < argc)
+	while (++i < argc - 1)
 	{
-
+		if (*argv[i] == '-' && (argv[i][1] == '0' || argv[i][1] == '\0'))
+			exit_error("Error\nInvalid arguments\n");
+		tmp = ft_number(argv[i]);
+		j = i - 1;
+		while (argc > j && j >= 0)
+		{
+			if (tmp == ft_number(argv[j]))
+				exit_error("Error\nRepeated number\n");
+			j--;
+		}
 	}
 }
 
 int	main(int argc, char *argv[])
 {
-	//check_arg(argc, argv);
-	argv++;
-	printf("%d\n", ft_number(argv[0]));
-	printf("%d\n", ft_atoi(argv[0]));
-
+	check_arg(argc, argv);
 	return (0);
 }
