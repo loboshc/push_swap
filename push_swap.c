@@ -1,21 +1,16 @@
-#include <unistd.h>
-#include <stdio.h>
-#include <ctype.h>
-#include <stdlib.h>
-#include <string.h> 
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dlobos-m <dlobos-m@student.42madrid.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/04/07 11:28:38 by dlobos-m          #+#    #+#             */
+/*   Updated: 2021/04/07 11:36:09 by dlobos-m         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void	exit_error(char *string)
-{
-	printf("%s", string);
-	exit(EXIT_FAILURE);
-}
-
-int	ft_isdigit(int c)
-{
-	if (c >= 48 && c <= 57)
-		return (1);
-	return (0);
-}
+#include "push_swap.h"
 
 int	ft_number(const char *n)
 {
