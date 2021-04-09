@@ -6,7 +6,7 @@
 /*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 18:17:51 by dlobos-m          #+#    #+#             */
-/*   Updated: 2021/04/08 20:27:14 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2021/04/09 20:26:13 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,19 @@ void	print_stack(t_stack *stack, char letter)
 		aux = aux->next;
 	}
 	printf("\n");
+}
+
+int	stack_len(t_stack *stack)
+{
+	int		len;
+	t_stack	*aux;
+
+	aux = stack;
+	len = 0;
+	while (aux != NULL)
+	{
+		aux = aux->next;
+		len++;
+	}
+	return (len);
 }

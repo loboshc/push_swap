@@ -18,5 +18,6 @@ t_stack *create_element(int num);
 int	add_element(t_stack **stack, int num);
 void print_stack(t_stack *stack, char letter);
 int	ft_number(const char *n);
+int	stack_len(t_stack *stack);
 
 #endif
