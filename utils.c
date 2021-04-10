@@ -6,7 +6,7 @@
 /*   By: dlobos-m <dlobos-m@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 11:28:25 by dlobos-m          #+#    #+#             */
-/*   Updated: 2021/04/07 18:42:25 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2021/04/11 01:13:30 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,14 @@ int	ft_number(const char *n)
 	if (!ft_isdigit(n[i[0]]) && n[i[0]] != '\0')
 		exit_error("Error\nInvalid arguments\n");
 	return (i[2] * i[1]);
+}
+
+t_stack	*last_element(t_stack *stack)
+{
+	t_stack	*aux;
+
+	aux = stack;
+	while (aux->next != NULL)
+		aux = aux->next;
+	return (aux);
 }

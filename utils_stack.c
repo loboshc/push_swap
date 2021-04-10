@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_stack.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dlobos-m <dlobos-m@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 18:17:51 by dlobos-m          #+#    #+#             */
-/*   Updated: 2021/04/09 20:26:13 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2021/04/10 20:36:00 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_stack	*create_element(int num)
 	return (new_element);
 }
 
-int	add_element(t_stack **stack, int num) // returns 0 if the element has been assigned to the list. 
+int	add_element_stack(t_stack **stack, int num) // returns 0 if the element has been assigned to the list. 
 {
 	t_stack	*new;
 
@@ -67,4 +67,14 @@ int	stack_len(t_stack *stack)
 		len++;
 	}
 	return (len);
+}
+
+void	load_stack(t_stack **stack, int argc, char **argv)
+{
+	int i;
+
+	i = argc - 1;
+	argv++;
+	while (i-- > 0)
+		add_element_stack(stack, ft_number(argv[i]));
 }

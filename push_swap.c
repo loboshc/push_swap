@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dlobos-m <dlobos-m@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 11:28:38 by dlobos-m          #+#    #+#             */
-/*   Updated: 2021/04/09 20:27:48 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2021/04/11 01:39:41 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,27 +34,6 @@ void	check_arg(int argc, char *argv[])
 	}
 }
 
-void	load_stack(t_stack **stack, int argc, char **argv)
-{
-	int i = argc - 1;
-	argv++;
-	while (i-- > 0)
-		add_element(stack, ft_number(argv[i]));
-}
-
-int	sa(t_stack **stack)
-{
-	t_stack *aux;
-
-	if (stack_len(*stack) > 1)
-	{
-		aux = (*stack)->next; // aux apunta al segundo elemendo
-		(*stack)->next = aux->next; // el puntero del primer elemento apunta al tercero
-		aux->next = *stack; // el puntero next auxiliar(que es el segundo elemento) apunta al primero
-		*stack = aux; // la cabeza de lista apunta al segundo elemento
-	}
-	return (0);
-}
 
 int	main(int argc, char *argv[])
 {
@@ -67,12 +46,22 @@ int	main(int argc, char *argv[])
 	{
 		check_arg(argc, argv);
 		load_stack(&h_stack_a, argc, argv);
+		//load_stack(&h_stack_b, argc, argv);
 	}
 	print_stack(h_stack_a, 'a');
-	sa(&h_stack_a);
-	
+	//print_stack(h_stack_b, 'b');
+	//sa(&h_stack_a);
+	//sb(&h_stack_b);
+	//ss(&h_stack_a, &h_stack_b);
+	//pa(&h_stack_a, &h_stack_b);
+	//pb(&h_stack_b, &h_stack_a);
+	//pb(&h_stack_b, &h_stack_a);
+	//pb(&h_stack_b, &h_stack_a);
+	ra(&h_stack_a);
 	print_stack(h_stack_a, 'a');
-	printf("len stack_a %d\n", stack_len(h_stack_a));
-	print_stack(h_stack_b, 'b');
+	//print_stack(h_stack_b, 'b');
+	//printf("len stack_a %d\n", stack_len(h_stack_a));
 	return (0);
 }
+
+// gcc push_swap.c utils.c utils_stack.c operation_swap.c operation_push.c
