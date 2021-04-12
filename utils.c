@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dlobos-m <dlobos-m@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 11:28:25 by dlobos-m          #+#    #+#             */
-/*   Updated: 2021/04/11 01:13:30 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2021/04/12 21:09:04 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	ft_number(const char *n)
 	i[1] = 1;
 	while (n[i[0]] == 32 || (n[i[0]] >= 9 && n[i[0]] <= 13))
 		i[0]++;
-	if (n[i[0]] == '-')
+	if (n[i[0]] == '-' || n[i[0]] == '+')
 	{
 		if (n[i[0]] == '-')
 			i[1] = (i[1] * (-1));
@@ -45,9 +45,9 @@ int	ft_number(const char *n)
 		i[2] = (i[2] * 10) + (n[i[0]] - '0');
 		i[0]++;
 		if (i[2] * i[1] > 2147483647)
-			return (-1);
+			exit_error("Error\nInvalid arguments\n");
 		else if (i[2] * i[1] < -2147483648)
-			return (0);
+			exit_error("Error\nInvalid arguments\n");
 	}
 	if (!ft_isdigit(n[i[0]]) && n[i[0]] != '\0')
 		exit_error("Error\nInvalid arguments\n");
