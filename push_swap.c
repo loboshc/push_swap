@@ -6,7 +6,7 @@
 /*   By: dlobos-m <dlobos-m@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 11:28:38 by dlobos-m          #+#    #+#             */
-/*   Updated: 2021/04/11 01:39:41 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2021/04/11 19:23:47 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ void	check_arg(int argc, char *argv[])
 	}
 }
 
-
 int	main(int argc, char *argv[])
 {
 	t_stack *h_stack_a;
@@ -46,10 +45,10 @@ int	main(int argc, char *argv[])
 	{
 		check_arg(argc, argv);
 		load_stack(&h_stack_a, argc, argv);
-		//load_stack(&h_stack_b, argc, argv);
+		load_stack(&h_stack_b, argc, argv);
 	}
 	print_stack(h_stack_a, 'a');
-	//print_stack(h_stack_b, 'b');
+	print_stack(h_stack_b, 'b');
 	//sa(&h_stack_a);
 	//sb(&h_stack_b);
 	//ss(&h_stack_a, &h_stack_b);
@@ -57,9 +56,14 @@ int	main(int argc, char *argv[])
 	//pb(&h_stack_b, &h_stack_a);
 	//pb(&h_stack_b, &h_stack_a);
 	//pb(&h_stack_b, &h_stack_a);
-	ra(&h_stack_a);
+	//ra(&h_stack_a);
+	//rb(&h_stack_b);
+	//rr(&h_stack_a, &h_stack_b);
+	//rra(&h_stack_a);
+	//rrb(&h_stack_b);
+	rrr(&h_stack_a, &h_stack_b);
 	print_stack(h_stack_a, 'a');
-	//print_stack(h_stack_b, 'b');
+	print_stack(h_stack_b, 'b');
 	//printf("len stack_a %d\n", stack_len(h_stack_a));
 	return (0);
 }
