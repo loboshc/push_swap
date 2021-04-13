@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dlobos-m <dlobos-m@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 11:28:38 by dlobos-m          #+#    #+#             */
-/*   Updated: 2021/04/12 21:22:48 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2021/04/13 13:01:16 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	check_arg(int argc, char *argv[])
 	}
 }
 
-void	is_sorted(t_stack *stack)
+int	is_sorted(t_stack *stack)
 {
 	int tmp;
 	int j;
@@ -46,10 +46,11 @@ void	is_sorted(t_stack *stack)
 	{
 		if (aux->num < aux->next->num)
 			j++;
-		if (j + 1 == stack_len(stack))
-			exit_error("Stack is ordered");
+		if (j + 1 == stack_len(stack)) // condicion de si esta ordenado
+			return (0);
 		aux = aux->next;
-	}					
+	}
+	return (1); // si no esta ordenado retorna 1
 }
 
 int	main(int argc, char *argv[])
@@ -59,15 +60,18 @@ int	main(int argc, char *argv[])
 
 	h_stack_a = NULL;
 	h_stack_b = NULL;
-	if (argc > 1)
+	printf("%d\n", argc);
+	argv++;
+	printf("%s", *argv);
+	/*if (argc > 1)
 	{
 		check_arg(argc, argv);
 		load_stack(&h_stack_a, argc, argv);
-		is_sorted(h_stack_a);
-		load_stack(&h_stack_b, argc, argv);
+		//is_sorted(h_stack_a);
+		//load_stack(&h_stack_b, argc, argv);
 	}
 	print_stack(h_stack_a, 'a');
-	print_stack(h_stack_b, 'b');
+	//print_stack(h_stack_b, 'b');
 	//sa(&h_stack_a);
 	//sb(&h_stack_b);
 	//ss(&h_stack_a, &h_stack_b);
@@ -81,10 +85,12 @@ int	main(int argc, char *argv[])
 	//rra(&h_stack_a);
 	//rrb(&h_stack_b);
 	//rrr(&h_stack_a, &h_stack_b);
+	//sort_3(&h_stack_a);
 	print_stack(h_stack_a, 'a');
-	print_stack(h_stack_b, 'b');
+	//print_stack(h_stack_b, 'b');
 	//printf("len stack_a %d\n", stack_len(h_stack_a));
+	*/
 	return (0);
 }
 
-// gcc push_swap.c utils.c utils_stack.c operation_swap.c operation_push.c operation_rotate.c operation_reverse_rotate.c
+// gcc push_swap.c utils.c utils_stack.c operation_swap.c operation_push.c operation_rotate.c operation_reverse_rotate.c algo.c

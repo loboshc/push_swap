@@ -32,5 +32,7 @@ void rr(t_stack **stack_a, t_stack **stack_b);
 void	rra(t_stack **stack_a);
 void	rrb(t_stack **stack_b);
 void rrr(t_stack **stack_a, t_stack ** stack_b);
+int	is_sorted(t_stack *stack);
+void sort_3(t_stack **st);
 
 #endif
