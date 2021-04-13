@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dlobos-m <dlobos-m@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 11:28:38 by dlobos-m          #+#    #+#             */
-/*   Updated: 2021/04/13 13:01:16 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2021/04/13 19:18:01 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,25 +34,6 @@ void	check_arg(int argc, char *argv[])
 	}
 }
 
-int	is_sorted(t_stack *stack)
-{
-	int tmp;
-	int j;
-	t_stack *aux;
-
-	aux = stack;
-	j = 0;
-	while (aux->next != NULL)
-	{
-		if (aux->num < aux->next->num)
-			j++;
-		if (j + 1 == stack_len(stack)) // condicion de si esta ordenado
-			return (0);
-		aux = aux->next;
-	}
-	return (1); // si no esta ordenado retorna 1
-}
-
 int	main(int argc, char *argv[])
 {
 	t_stack *h_stack_a;
@@ -60,14 +41,16 @@ int	main(int argc, char *argv[])
 
 	h_stack_a = NULL;
 	h_stack_b = NULL;
-	printf("%d\n", argc);
-	argv++;
-	printf("%s", *argv);
-	/*if (argc > 1)
+	if (argc > 1)
 	{
 		check_arg(argc, argv);
 		load_stack(&h_stack_a, argc, argv);
-		//is_sorted(h_stack_a);
+		print_stack(h_stack_a, 'a');
+		if (is_sorted(h_stack_a) == 0)
+			exit(0);
+		if (stack_len(h_stack_a) == 3)
+			sort_3(&h_stack_a);
+
 		//load_stack(&h_stack_b, argc, argv);
 	}
 	print_stack(h_stack_a, 'a');
@@ -86,10 +69,10 @@ int	main(int argc, char *argv[])
 	//rrb(&h_stack_b);
 	//rrr(&h_stack_a, &h_stack_b);
 	//sort_3(&h_stack_a);
-	print_stack(h_stack_a, 'a');
+	//print_stack(h_stack_a, 'a');
 	//print_stack(h_stack_b, 'b');
 	//printf("len stack_a %d\n", stack_len(h_stack_a));
-	*/
+
 	return (0);
 }
 
