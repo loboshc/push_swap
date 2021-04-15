@@ -6,7 +6,7 @@
 /*   By: dlobos-m <dlobos-m@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/11 19:18:21 by dlobos-m          #+#    #+#             */
-/*   Updated: 2021/04/13 10:57:45 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2021/04/15 01:57:34 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ void	rra(t_stack **stack_a)
 		aux_2->next = NULL;
 		aux->next = *stack_a; // el puntero del ultimo elemento apunta al primero 
 		*stack_a = aux; // la cabeza apunta a la dirrecion de memoria del ultimo elemento
+		printf("rra\n");
 	}
-	printf("rra\n");
 }
 
 void	rrb(t_stack **stack_b)
@@ -44,6 +44,7 @@ void	rrb(t_stack **stack_b)
 		aux_2->next = NULL;
 		aux->next = *stack_b; // el puntero del ultimo elemento apunta al primero 
 		*stack_b = aux; // la cabeza apunta a la dirrecion de memoria del ultimo elemento
+		printf("rrb\n");
 	}
 }
 

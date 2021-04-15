@@ -6,7 +6,7 @@
 /*   By: dlobos-m <dlobos-m@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/11 01:38:40 by dlobos-m          #+#    #+#             */
-/*   Updated: 2021/04/13 10:57:22 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2021/04/15 01:56:38 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void	ra(t_stack **stack_a)
 		(*stack_a)->next = NULL; // el ultimo elemento apunta a NULL
 		aux->next = *stack_a; // el ultimo elemento apunta al primero, combirtiendo al primero en ultimo 
 		*stack_a = aux_2; // La cabeza apunta al segundo elemento combiertiendolo en el primero
+		printf("ra\n");
 	}
-	printf("ra\n");
 }
 
 void	rb(t_stack **stack_b)
@@ -40,6 +40,7 @@ void	rb(t_stack **stack_b)
 		(*stack_b)->next = NULL; // el ultimo elemento apunta a NULL
 		aux->next = *stack_b; // el ultimo elemento apunta al primero, combirtiendo al primero en ultimo 
 		*stack_b = aux_2; // La cabeza apunta al segundo elemento combiertiendolo en el primero
+		printf("rb\n");
 	}
 }
 

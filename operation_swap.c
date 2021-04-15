@@ -6,7 +6,7 @@
 /*   By: dlobos-m <dlobos-m@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 20:11:26 by dlobos-m          #+#    #+#             */
-/*   Updated: 2021/04/13 10:58:04 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2021/04/15 01:56:08 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ void	sa(t_stack **stack)
 		(*stack)->next = aux->next; // el puntero del primer elemento apunta al tercero
 		aux->next = *stack; // el puntero next auxiliar(que es el segundo elemento) apunta al primero
 		*stack = aux; // la cabeza de lista apunta al segundo elemento
+		printf("sa\n");
 	}
-	printf("sa\n");
 }
 
 void	sb(t_stack **stack)
@@ -36,6 +36,7 @@ void	sb(t_stack **stack)
 		(*stack)->next = aux->next; // el puntero del primer elemento apunta al tercero
 		aux->next = *stack; // el puntero next auxiliar(que es el segundo elemento) apunta al primero
 		*stack = aux; // la cabeza de lista apunta al segundo elemento
+		printf("sb\n");
 	}
 }
 

@@ -5,6 +5,7 @@
 # include <ctype.h>
 # include <stdlib.h>
 # include <string.h> 
+# include <limits.h>
 
 typedef struct s_stack
 {
@@ -34,6 +35,8 @@ void	rrb(t_stack **stack_b);
 void rrr(t_stack **stack_a, t_stack ** stack_b);
 int	is_sorted(t_stack *stack);
 void sort_3(t_stack **st);
-int	is_sorted(t_stack *stack);
+int	get_max(t_stack **stack);
+int	get_min(t_stack **stack);
+void sort_min(t_stack **st_a, t_stack **st_b);
 
 #endif

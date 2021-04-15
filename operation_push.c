@@ -6,7 +6,7 @@
 /*   By: dlobos-m <dlobos-m@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 20:35:35 by dlobos-m          #+#    #+#             */
-/*   Updated: 2021/04/11 00:16:35 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2021/04/15 00:52:03 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ void	pa(t_stack **stack_a, t_stack **stack_b)
 		aux = (*stack_b)->next; // guardo la direccion de memoria del segundo elemento del stack b
 		(*stack_b)->next = *stack_a; // asigno al apuntador next del primer elemento de b la direccion de memoria del top a
 		*stack_b = aux; // top de b apunta al segundo elemento combirtiendose en el primero de top b
-		*stack_a = aux_2; // top de a apunta al top de b combirtiendose en el primero de top de a	
+		*stack_a = aux_2; // top de a apunta al top de b combirtiendose en el primero de top de a
+		printf("pa\n");	
 	}
 }
 
@@ -42,5 +43,6 @@ void	pb(t_stack **stack_b, t_stack **stack_a)
 		(*stack_a)->next = *stack_b; // el puntero next del top de a apunta al top de b
 		*stack_a = aux; // top de a apunta al segundo elemento
 		*stack_b = aux_2; // top de b apunta al top de a
+		printf("pb\n");
 	}
 }
