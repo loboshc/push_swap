@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dlobos-m <dlobos-m@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 09:41:33 by dlobos-m          #+#    #+#             */
-/*   Updated: 2021/04/19 14:57:30 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2021/04/19 18:45:01 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 void	sort_3(t_stack **st)
 {
-	t_stack *last;
-	int sec;
+	t_stack	*last;
+	int		sec;
 
 	sec = (*st)->next->num;
 	last = last_element(*st);
 	if (stack_len(*st) == 2 && (*st)->num > sec)
 		sa(st);
-	else if ((*st)->num > sec && last->num > sec && (*st)->num > last->num) 
+	else if ((*st)->num > sec && last->num > sec && (*st)->num > last->num)
 		ra(st);
 	else if ((*st)->num < sec && last->num < sec && (*st)->num < last->num)
 	{
@@ -74,6 +74,6 @@ void	sort_min(t_stack **st_a, t_stack **st_b)
 		pb(st_b, st_a);
 	}
 	sort_3(st_a);
-	while(stack_len(*st_b) > 0)
+	while (stack_len(*st_b) > 0)
 		pa(st_a, st_b);
 }

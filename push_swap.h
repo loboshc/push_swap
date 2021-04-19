@@ -14,6 +14,7 @@ typedef struct s_stack
 	struct	s_stack	*next;
 }t_stack;
 
+void	check_arg(int argc, char **argv);
 void	exit_error(char *string);
 int	ft_isdigit(int c);
 t_stack *create_element(int num);
