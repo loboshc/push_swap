@@ -6,7 +6,7 @@
 /*   By: dlobos-m <dlobos-m@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 18:17:51 by dlobos-m          #+#    #+#             */
-/*   Updated: 2021/04/10 20:36:00 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2021/04/19 15:09:25 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ t_stack	*create_element(int num)
 	if (new_element == NULL)
 		exit_error("Unable to allocate memory");
 	new_element->num = num;
+	new_element->pos = 0;
 	new_element->next = NULL;
 	return (new_element);
 }

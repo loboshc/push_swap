@@ -6,7 +6,7 @@
 /*   By: dlobos-m <dlobos-m@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 09:41:33 by dlobos-m          #+#    #+#             */
-/*   Updated: 2021/04/15 01:56:54 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2021/04/19 14:57:30 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ void	sort_3(t_stack **st)
 
 	sec = (*st)->next->num;
 	last = last_element(*st);
-	if ((*st)->num > sec && last->num > sec && (*st)->num > last->num) 
+	if (stack_len(*st) == 2 && (*st)->num > sec)
+		sa(st);
+	else if ((*st)->num > sec && last->num > sec && (*st)->num > last->num) 
 		ra(st);
 	else if ((*st)->num < sec && last->num < sec && (*st)->num < last->num)
 	{

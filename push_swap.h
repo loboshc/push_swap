@@ -10,6 +10,7 @@
 typedef struct s_stack
 {
 	int	num;
+	int pos;
 	struct	s_stack	*next;
 }t_stack;
 
@@ -38,5 +39,6 @@ void sort_3(t_stack **st);
 int	get_max(t_stack **stack);
 int	get_min(t_stack **stack);
 void sort_min(t_stack **st_a, t_stack **st_b);
+void	long_sort(char **argv, int argc, t_stack **st_a , t_stack **st_b);
 
 #endif
