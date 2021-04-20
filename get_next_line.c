@@ -6,11 +6,12 @@
 /*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 19:18:27 by dlobos-m          #+#    #+#             */
-/*   Updated: 2021/04/19 20:36:42 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2021/04/20 19:01:16 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include "push_swap.h"
 
 int	print_line(char **file, char **line, int i)
 {

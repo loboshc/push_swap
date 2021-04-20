@@ -6,33 +6,12 @@
 /*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 11:28:38 by dlobos-m          #+#    #+#             */
-/*   Updated: 2021/04/19 18:53:30 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2021/04/20 19:44:28 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	check_arg(int argc, char **argv)
-{
-	int	i;
-	int	tmp;
-	int	j;
-
-	i = -1;
-	argv++;
-	while (++i < argc - 1)
-	{
-		if ((*argv[i] == '-' || *argv[i] == '+') && argv[i][1] == '\0')
-			exit_error("Error\nInvalid arguments\n");
-		tmp = ft_number(argv[i]);
-		j = i;
-		while (argc > --j && j >= 0)
-		{
-			if (tmp == ft_number(argv[j]))
-				exit_error("Error\nRepeated number\n");
-		}
-	}
-}
 
 int	get_min(t_stack **stack)
 {

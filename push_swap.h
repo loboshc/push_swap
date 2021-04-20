@@ -7,6 +7,12 @@
 # include <string.h> 
 # include <limits.h>
 
+typedef struct s_oper
+{
+	char	*instruc;
+	struct	s_oper	*next;
+}t_oper;
+
 typedef struct s_stack
 {
 	int	num;
@@ -41,5 +47,7 @@ int	get_max(t_stack **stack);
 int	get_min(t_stack **stack);
 void sort_min(t_stack **st_a, t_stack **st_b);
 void	long_sort(char **argv, int argc, t_stack **st_a , t_stack **st_b);
+int	get_next_line(int fd, char **line);
+void	check_arg(int argc, char **argv);
 
 #endif
