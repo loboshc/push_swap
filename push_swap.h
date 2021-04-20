@@ -7,12 +7,6 @@
 # include <string.h> 
 # include <limits.h>
 
-typedef struct s_oper
-{
-	char	*instruc;
-	struct	s_oper	*next;
-}t_oper;
-
 typedef struct s_stack
 {
 	int	num;
