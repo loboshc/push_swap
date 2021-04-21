@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_stack.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dlobos-m <dlobos-m@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 18:17:51 by dlobos-m          #+#    #+#             */
-/*   Updated: 2021/04/19 15:09:25 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2021/04/21 17:47:22 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int	stack_len(t_stack *stack)
 
 void	load_stack(t_stack **stack, int argc, char **argv)
 {
-	int i;
+	int	i;
 
 	i = argc - 1;
 	argv++;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   long_algo.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dlobos-m <dlobos-m@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 15:13:12 by dlobos-m          #+#    #+#             */
-/*   Updated: 2021/04/21 15:49:36 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2021/04/21 17:59:34 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,17 +144,17 @@ void	create_chunk(t_stack **st_a, t_stack **st_b)
 	while (stack_len(*st_b) - len_b <= (len_a / 5))
 	{
 		if ((*st_a)->pos >= (len_a - (len_a / 5)))
-			pb(st_b, st_a);
+			pb(st_b, st_a, 0);
 		else
 		{
 			if (search_next_item(*st_a, len_a, (len_a / 5)) == 0)
 			{
 				while ((*st_a)->pos < (len_a - (len_a / 5)))
-					ra(st_a);
+					ra(st_a, 0);
 			}
 			else
 				while ((*st_a)->pos < (len_a - (len_a / 5)))
-					rra(st_a);
+					rra(st_a, 0);
 		}
 	}
 }
@@ -167,18 +167,18 @@ void return_greater_to_a(t_stack **st_a, t_stack **st_b)
 	{
 		max = get_max_pos(st_b);
 		if ((*st_b)->pos == max)
-			pa(st_a, st_b);
+			pa(st_a, st_b, 0);
 		else
 		{
 			if (search_next_greater(*st_b, max) == 1)
 			{
 				while((*st_b)->pos != max)
-					rrb(st_b);
+					rrb(st_b, 0);
 			}
 			else
 			{
 				while((*st_b)->pos != max)
-					rb(st_b);
+					rb(st_b, 0);
 			}
 		}
 	}
@@ -191,10 +191,10 @@ void	long_sort(char **argv, int argc, t_stack **st_a , t_stack **st_b)
 	while (stack_len(*st_a) >= 5)
 		create_chunk(st_a, st_b);
 	while((*st_a)->pos != 3)
-		ra(st_a);
-	pb(st_b, st_a);
+		ra(st_a, 0);
+	pb(st_b, st_a, 0);
 	sort_3(st_a);
 	return_greater_to_a(st_a, st_b);
 	while (is_sorted(*st_a) == 1)
-		rra(st_a);
+		rra(st_a, 0);
 }

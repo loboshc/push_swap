@@ -6,7 +6,7 @@
 /*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 09:41:33 by dlobos-m          #+#    #+#             */
-/*   Updated: 2021/04/20 20:50:58 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2021/04/21 20:56:42 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,23 +20,23 @@ void	sort_3(t_stack **st)
 	sec = (*st)->next->num;
 	last = last_element(*st);
 	if (stack_len(*st) == 2 && (*st)->num > sec)
-		sa(st);
+		sa(st, 0);
 	else if ((*st)->num > sec && last->num > sec && (*st)->num > last->num)
-		ra(st);
+		ra(st, 0);
 	else if ((*st)->num < sec && last->num < sec && (*st)->num < last->num)
 	{
-		rra(st);
-		sa(st);
+		rra(st, 0);
+		sa(st, 0);
 	}
 	else if ((*st)->num < sec && last->num < sec && (*st)->num > last->num)
-		rra(st);
+		rra(st, 0);
 	else if ((*st)->num > sec && sec > last->num)
 	{
-		sa(st);
-		rra(st);
+		sa(st, 0);
+		rra(st, 0);
 	}
 	else if ((*st)->num > sec && sec < last->num && last->num > (*st)->num)
-		sa(st);
+		sa(st, 0);
 }
 
 int	get_pos(t_stack *stack, int find)
@@ -67,13 +67,13 @@ void	sort_min(t_stack **st_a, t_stack **st_b)
 		while ((*st_a)->num != min)
 		{
 			if (pos < stack_len(*st_a) / 2)
-				ra(st_a);
+				ra(st_a, 0);
 			else
-				rra(st_a);
+				rra(st_a, 0);
 		}
-		pb(st_b, st_a);
+		pb(st_b, st_a, 0);
 	}
 	sort_3(st_a);
 	while (stack_len(*st_b) > 0)
-		pa(st_a, st_b);
+		pa(st_a, st_b, 0);
 }

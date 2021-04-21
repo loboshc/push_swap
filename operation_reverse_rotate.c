@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   operation_reverse_rotate.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dlobos-m <dlobos-m@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/11 19:18:21 by dlobos-m          #+#    #+#             */
-/*   Updated: 2021/04/15 01:57:34 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2021/04/21 17:55:33 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rra(t_stack **stack_a)
+void	rra(t_stack **stack_a, int call)
 {
 	t_stack	*aux;
 	t_stack	*aux_2;
@@ -26,11 +26,12 @@ void	rra(t_stack **stack_a)
 		aux_2->next = NULL;
 		aux->next = *stack_a; // el puntero del ultimo elemento apunta al primero 
 		*stack_a = aux; // la cabeza apunta a la dirrecion de memoria del ultimo elemento
-		printf("rra\n");
+		if (call == 0)
+			printf("rra\n");
 	}
 }
 
-void	rrb(t_stack **stack_b)
+void	rrb(t_stack **stack_b, int call)
 {
 	t_stack	*aux;
 	t_stack	*aux_2;
@@ -44,12 +45,13 @@ void	rrb(t_stack **stack_b)
 		aux_2->next = NULL;
 		aux->next = *stack_b; // el puntero del ultimo elemento apunta al primero 
 		*stack_b = aux; // la cabeza apunta a la dirrecion de memoria del ultimo elemento
-		printf("rrb\n");
+		if (call == 0)
+			printf("rrb\n");
 	}
 }
 
-void rrr(t_stack **stack_a, t_stack ** stack_b)
+void rrr(t_stack **stack_a, t_stack ** stack_b, int call)
 {
-	rra(stack_a);
-	rrb(stack_b);
+	rra(stack_a, call);
+	rrb(stack_b, call);
 }

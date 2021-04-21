@@ -3,21 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dlobos-m <dlobos-m@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 18:50:21 by dlobos-m          #+#    #+#             */
-/*   Updated: 2021/04/20 22:58:57 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2021/04/21 21:05:17 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int		ft_isalpha_lower(int c)
-{
-	if ((c >= 97 && c <= 122))
-		return (1);
-	return (0);
-}
 
 int		ft_strncmp(const char *s1, const char *s2, size_t n)
 {
@@ -38,15 +31,30 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n)
 
 void execute_instruction(char *instruc, t_stack **st_a, t_stack **st_b)
 {
-
-	if (instruc == NULL)
-		exit_error("Error\nInvalid instruction\n");
-	else if (ft_strncmp(instruc, "sa", 2) == 0)
-		sa(st_a);
+	if (ft_strncmp(instruc, "sa", 2) == 0)
+		sa(st_a, 1);
+	else if (ft_strncmp(instruc, "sb", 2) == 0)
+		sb(st_b, 1);
+	else if (ft_strncmp(instruc, "ss", 2) == 0)
+		ss(st_a, st_b, 1);
+	else if (ft_strncmp(instruc, "pa", 2) == 0)
+		pa(st_a, st_b, 1);
+	else if (ft_strncmp(instruc, "pb", 2) == 0)
+		pb(st_b, st_a, 1);
 	else if (ft_strncmp(instruc, "ra", 2) == 0)
-		ra(st_a);
-	else if (ft_strncmp(instruc, "rra", 2) == 0)
-		rra(st_a);
+		ra(st_a, 1);
+	else if (ft_strncmp(instruc, "rb", 2) == 0)
+		rb(st_b, 1);
+	else if (ft_strncmp(instruc, "rr", 2) == 0)
+		rr(st_a, st_b, 1);
+	else if (ft_strncmp(instruc, "rra", 3) == 0)
+		rra(st_a, 1);
+	else if (ft_strncmp(instruc, "rrb", 3) == 0)
+		rrb(st_b, 1);
+	else if (ft_strncmp(instruc, "rrr", 3) == 0)
+		rrr(st_a, st_b, 1);
+	else
+		exit_error("Error\n");
 }
 
 int	check_spaces(char *str)
@@ -75,21 +83,19 @@ void	read_and_execute(t_stack **st_a, t_stack **st_b)
 		if (i == -1)
 			exit_error("Error en la lectura");
 		if (!check_spaces(read))
-			execute_instruction(read, st_a, st_b);
+		{
+			if (i != 0)
+				execute_instruction(read, st_a, st_b);
+		}
 		else
 			exit_error("Error\n");
-		if (is_sorted(*st_a) == 0 && stack_len(*st_b) == 0)
-		{
-			printf("OK\n");
-			break ;
-		}
 	}
 }
 
 int	main(int argc, char **argv)
 {
-	t_stack *h_stack_a;
-	t_stack *h_stack_b;
+	t_stack	*h_stack_a;
+	t_stack	*h_stack_b;
 
 	h_stack_a = NULL;
 	h_stack_b = NULL;
@@ -98,11 +104,18 @@ int	main(int argc, char **argv)
 	if (argc > 2)
 	{
 		load_stack(&h_stack_a, argc, argv);
-		print_stack(h_stack_a, 'a');
 		read_and_execute(&h_stack_a, &h_stack_b);
-		print_stack(h_stack_a, 'a');
+		if (is_sorted(h_stack_a) == 0 && stack_len(h_stack_b) == 0)
+		{
+			printf("OK\n");
+			exit(EXIT_SUCCESS);
+		}
+		else
+		{
+			printf("KO\n");
+			exit(EXIT_FAILURE);
+		}
 	}
 	return (0);
 }
-// si no existe la instruccion debe dar error
-// gcc checker.c get_next_line.c get_next_line_utils.c utils.c utils_stack.c check_arg.c operation_push.c operation_rotate.c operation_swap.c operation_reverse_rotate.c 
+// gcc -o checker checker.c get_next_line.c get_next_line_utils.c utils.c utils_stack.c check_arg.c operation_push.c operation_rotate.c operation_swap.c operation_reverse_rotate.c 
