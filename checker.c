@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dlobos-m <dlobos-m@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 18:50:21 by dlobos-m          #+#    #+#             */
-/*   Updated: 2021/04/20 21:46:55 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2021/04/20 22:58:57 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,10 @@ void	read_and_execute(t_stack **st_a, t_stack **st_b)
 		else
 			exit_error("Error\n");
 		if (is_sorted(*st_a) == 0 && stack_len(*st_b) == 0)
+		{
+			printf("OK\n");
 			break ;
+		}
 	}
 }
 

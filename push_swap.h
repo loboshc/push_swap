@@ -37,7 +37,7 @@ void	rrb(t_stack **stack_b);
 void rrr(t_stack **stack_a, t_stack ** stack_b);
 int	is_sorted(t_stack *stack);
 void sort_3(t_stack **st);
-int	get_max(t_stack **stack);
+int	get_max_pos(t_stack **stack);
 int	get_min(t_stack **stack);
 void sort_min(t_stack **st_a, t_stack **st_b);
 void	long_sort(char **argv, int argc, t_stack **st_a , t_stack **st_b);
