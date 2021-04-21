@@ -6,7 +6,7 @@
 /*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 11:28:38 by dlobos-m          #+#    #+#             */
-/*   Updated: 2021/04/21 18:23:18 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2021/04/21 21:22:04 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ int	main(int argc, char *argv[])
 		else
 			long_sort(argv, argc, &h_stack_a, &h_stack_b);
 	}
+	//print_stack(h_stack_a,'a');
 	return (0);
 }
 
