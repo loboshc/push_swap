@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dlobos-m <dlobos-m@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 11:28:25 by dlobos-m          #+#    #+#             */
-/*   Updated: 2021/04/21 21:33:57 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2021/04/22 01:06:45 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,11 @@ t_stack	*last_element(t_stack *stack)
 
 int	is_sorted(t_stack *stack)
 {
-	int		len;
 	int		j;
 	t_stack	*aux;
 
 	aux = stack;
 	j = 0;
-	len = stack_len(stack);
 	if (aux == NULL)
 		return (1);
 	while (aux->next != NULL)
@@ -52,7 +50,7 @@ int	is_sorted(t_stack *stack)
 			j++;
 		aux = aux->next;
 	}
-	if (j + 1 == len) // retorna 0 si esta ordenado
+	if (j + 1 == stack_len(stack)) // retorna 0 si esta ordenado
 		return (0);
 	return (1); // si no esta ordenado retorna 1
 }

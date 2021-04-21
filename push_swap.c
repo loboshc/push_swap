@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dlobos-m <dlobos-m@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 11:28:38 by dlobos-m          #+#    #+#             */
-/*   Updated: 2021/04/21 21:22:04 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2021/04/22 01:06:48 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,7 @@ int	main(int argc, char *argv[])
 		else
 			long_sort(argv, argc, &h_stack_a, &h_stack_b);
 	}
-	//print_stack(h_stack_a,'a');
 	return (0);
 }
 
-// gcc -o push_swap push_swap.c check_arg.c utils.c utils_stack.c operation_swap.c operation_push.c operation_rotate.c operation_reverse_rotate.c algo.c long_algo.c
+// gcc -o push_swap push_swap.c check_arg.c utils.c utils_stack.c operation_swap.c operation_push.c operation_rotate.c operation_reverse_rotate.c algo.c long_algo.c find_pos.c

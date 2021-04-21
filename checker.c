@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dlobos-m <dlobos-m@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 18:50:21 by dlobos-m          #+#    #+#             */
-/*   Updated: 2021/04/21 21:30:33 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2021/04/22 00:57:13 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (n == 0)
@@ -33,25 +33,25 @@ void execute_instruction(char *instruc, t_stack **st_a, t_stack **st_b)
 {
 	if (ft_strncmp(instruc, "sa", 2) == 0)
 		sa(st_a, 1);
-	else if (ft_strncmp(instruc, "sb", 2) == 0)
+	else if (ft_strncmp(instruc, "sb", 3) == 0)
 		sb(st_b, 1);
-	else if (ft_strncmp(instruc, "ss", 2) == 0)
+	else if (ft_strncmp(instruc, "ss", 3) == 0)
 		ss(st_a, st_b, 1);
-	else if (ft_strncmp(instruc, "pa", 2) == 0)
+	else if (ft_strncmp(instruc, "pa", 3) == 0)
 		pa(st_a, st_b, 1);
-	else if (ft_strncmp(instruc, "pb", 2) == 0)
+	else if (ft_strncmp(instruc, "pb", 3) == 0)
 		pb(st_b, st_a, 1);
-	else if (ft_strncmp(instruc, "ra", 2) == 0)
+	else if (ft_strncmp(instruc, "ra", 3) == 0)
 		ra(st_a, 1);
-	else if (ft_strncmp(instruc, "rb", 2) == 0)
+	else if (ft_strncmp(instruc, "rb", 3) == 0)
 		rb(st_b, 1);
-	else if (ft_strncmp(instruc, "rr", 2) == 0)
+	else if (ft_strncmp(instruc, "rr", 3) == 0)
 		rr(st_a, st_b, 1);
-	else if (ft_strncmp(instruc, "rra", 3) == 0)
+	else if (ft_strncmp(instruc, "rra", 4) == 0)
 		rra(st_a, 1);
-	else if (ft_strncmp(instruc, "rrb", 3) == 0)
+	else if (ft_strncmp(instruc, "rrb", 4) == 0)
 		rrb(st_b, 1);
-	else if (ft_strncmp(instruc, "rrr", 3) == 0)
+	else if (ft_strncmp(instruc, "rrr", 4) == 0)
 		rrr(st_a, st_b, 1);
 	else
 		exit_error("Error\n");
@@ -106,15 +106,9 @@ int	main(int argc, char **argv)
 		load_stack(&h_stack_a, argc, argv);
 		read_and_execute(&h_stack_a, &h_stack_b);
 		if (is_sorted(h_stack_a) == 0 && stack_len(h_stack_b) == 0)
-		{
 			printf("OK\n");
-			exit(EXIT_SUCCESS);
-		}
 		else
-		{
 			printf("KO\n");
-			exit(EXIT_FAILURE);
-		}
 	}
 	return (0);
 }

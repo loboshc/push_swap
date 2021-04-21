@@ -3,94 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   long_algo.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dlobos-m <dlobos-m@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 15:13:12 by dlobos-m          #+#    #+#             */
-/*   Updated: 2021/04/21 21:14:19 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2021/04/22 01:04:27 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	sort_list(int *list_aux, int size)
-{
-	int i;
-	int j;
-	int tmp;
-	
-	i = 0;
-	while (i < size)
-	{
-		j = 0;
-		while (j < size - 1)
-		{
-			if (list_aux[j + 1] < list_aux[j])
-			{
-				tmp = list_aux[j + 1];
-				list_aux[j + 1] = list_aux[j];
-				list_aux[j] = tmp;
-			}
-			j++;
-		}
-		i++;
-	}	
-	return (0);
-}
-
-int assign_pos(t_stack **st_a, int *list_aux, int size)
-{
-	t_stack *aux;
-	int i;
-
-	aux = *st_a;
-	while (aux != NULL)
-	{
-		i = 0;
-		while (i < size)
-		{
-			if (list_aux[i] == aux->num)
-				aux->pos = i;
-			i++;
-		}
-		aux = aux->next;
-	}
-	return (0);
-}
-
-int	find_pos(t_stack **st_a, int argc, char **argv)
-{
-	int *list_aux;
-	t_stack *aux;
-	int i;
-	
-	i = 0;
-	aux = *st_a;
-	list_aux = (int*)malloc(sizeof(int) * argc - 1);
-	argv++;
-	while(aux != NULL)
-	{
-		list_aux[i] = aux->num;
-		aux =  aux->next;
-		i++;
-	}
-	if (sort_list(list_aux, argc - 1) != 0)
-		return (1);
-	if (assign_pos(st_a, list_aux, argc - 1) != 0)
-		return (1);
-
-	// print list
-/*
-	int j = 0;
-	printf("Lista ordenada: \n ");
-	while (j < i)
-	{
-		printf("%d, ", list_aux[j]);
-		j++;
-	}
-	*/
-	free(list_aux);
-	return (0);
-}
 
 int	search_next_item(t_stack *st_a,int len_a,  int len_chunk)
 {
@@ -116,9 +36,9 @@ int	search_next_item(t_stack *st_a,int len_a,  int len_chunk)
 
 int	search_next_greater(t_stack *st_b, int max)
 {
-	t_stack *aux;
-	int pos;
-	int len_b;
+	t_stack	*aux;
+	int		pos;
+	int		len_b;
 
 	aux = st_b;
 	pos = 0;
@@ -136,8 +56,8 @@ int	search_next_greater(t_stack *st_b, int max)
 
 void	create_chunk(t_stack **st_a, t_stack **st_b)
 {
-	int len_a;
-	int len_b;
+	int	len_a;
+	int	len_b;
 
 	len_a = stack_len(*st_a) - 1;
 	len_b = stack_len(*st_b);

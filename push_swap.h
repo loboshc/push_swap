@@ -44,5 +44,6 @@ void	long_sort(char **argv, int argc, t_stack **st_a , t_stack **st_b);
 int	get_next_line(int fd, char **line);
 void	check_arg(int argc, char **argv);
 int		ft_isalpha_lower(int c);
+int	find_pos(t_stack **st_a, int argc, char **argv);
 
 #endif
