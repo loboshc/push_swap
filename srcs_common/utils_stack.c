@@ -6,11 +6,11 @@
 /*   By: dlobos-m <dlobos-m@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 18:17:51 by dlobos-m          #+#    #+#             */
-/*   Updated: 2021/04/22 01:06:34 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2021/04/22 23:22:19 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "common.h"
 
 t_stack	*create_element(int num)
 {
@@ -25,7 +25,7 @@ t_stack	*create_element(int num)
 	return (new_element);
 }
 
-int	add_element_stack(t_stack **stack, int num) // returns 0 if the element has been assigned to the list. 
+int	add_element_stack(t_stack **stack, int num)
 {
 	t_stack	*new;
 

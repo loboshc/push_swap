@@ -6,50 +6,28 @@
 /*   By: dlobos-m <dlobos-m@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 15:13:12 by dlobos-m          #+#    #+#             */
-/*   Updated: 2021/04/22 01:04:27 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2021/04/22 23:26:51 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	search_next_item(t_stack *st_a,int len_a,  int len_chunk)
+int	search_next_item(t_stack *st_a, int len_a, int len_chunk)
 {
-	t_stack *aux;
-	int pos;
+	t_stack	*aux;
+	int		pos;
 
 	aux = st_a;
 	pos = 0;
 	while (aux != NULL)
 	{
-		if (aux->pos >= (len_a - len_chunk)) // si encuentro un elemento del chunck
+		if (aux->pos >= (len_a - len_chunk))
 		{
-			if (pos >= (len_a / 2)) 
+			if (pos >= (len_a / 2))
 				return (1);
 		}
 		pos++;
 		aux = aux->next;
-	}
-	// si retorna 1 esta mas cerca del final del stack
-	// si retorna 0 estas mas cerca del principio del stack
-	return (0);
-}
-
-int	search_next_greater(t_stack *st_b, int max)
-{
-	t_stack	*aux;
-	int		pos;
-	int		len_b;
-
-	aux = st_b;
-	pos = 0;
-	len_b = stack_len(st_b);
-	while (aux != NULL)
-	{
-		if (aux->pos == max)
-			if (pos > (len_b / 2))
-				return (1); 
-		aux = aux->next;
-		pos++;
 	}
 	return (0);
 }
@@ -79,38 +57,13 @@ void	create_chunk(t_stack **st_a, t_stack **st_b)
 	}
 }
 
-void return_greater_to_a(t_stack **st_a, t_stack **st_b)
+void	long_sort(char **argv, int argc, t_stack **st_a, t_stack **st_b)
 {
-	int max;
-
-	while (stack_len(*st_b) > 0)
-	{
-		max = get_max_pos(st_b);
-		if ((*st_b)->pos == max)
-			pa(st_a, st_b, 0);
-		else
-		{
-			if (search_next_greater(*st_b, max) == 1)
-			{
-				while((*st_b)->pos != max)
-					rrb(st_b, 0);
-			}
-			else
-			{
-				while((*st_b)->pos != max)
-					rb(st_b, 0);
-			}
-		}
-	}
-}
-
-void	long_sort(char **argv, int argc, t_stack **st_a , t_stack **st_b)
-{
-	if (find_pos(st_a, argc, argv) == 1) // asigno la posicion ordenada
+	if (find_pos(st_a, argc, argv) == 1)
 		exit_error("Error\n");
 	while (stack_len(*st_a) >= 5)
 		create_chunk(st_a, st_b);
-	while((*st_a)->pos != 3)
+	while ((*st_a)->pos != 3)
 		ra(st_a, 0);
 	pb(st_b, st_a, 0);
 	sort_3(st_a);

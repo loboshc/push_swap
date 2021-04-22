@@ -6,11 +6,11 @@
 /*   By: dlobos-m <dlobos-m@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 11:28:25 by dlobos-m          #+#    #+#             */
-/*   Updated: 2021/04/22 01:06:45 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2021/04/22 23:23:06 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "common.h"
 
 void	exit_error(char *string)
 {
@@ -50,14 +50,7 @@ int	is_sorted(t_stack *stack)
 			j++;
 		aux = aux->next;
 	}
-	if (j + 1 == stack_len(stack)) // retorna 0 si esta ordenado
+	if (j + 1 == stack_len(stack))
 		return (0);
-	return (1); // si no esta ordenado retorna 1
-}
-
-int		ft_isalpha_lower(int c)
-{
-	if ((c >= 97 && c <= 122))
-		return (1);
-	return (0);
+	return (1);
 }

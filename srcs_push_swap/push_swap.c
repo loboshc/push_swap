@@ -6,53 +6,19 @@
 /*   By: dlobos-m <dlobos-m@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 11:28:38 by dlobos-m          #+#    #+#             */
-/*   Updated: 2021/04/22 01:06:48 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2021/04/22 23:27:36 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-int	get_min(t_stack **stack)
+int	main(int argc, char **argv)
 {
-	t_stack	*aux;
-	int	min;
-
-	min = INT_MAX;
-	aux = *stack;
-	while (aux != NULL)
-	{
-		if (aux->num < min)
-			min = aux->num;
-		aux = aux->next;
-	}
-	return (min);
-}
-
-int	get_max_pos(t_stack **stack)
-{
-	t_stack	*aux;
-	int	max;
-
-	max = 0;
-	aux = *stack;
-	while (aux != NULL)
-	{
-		if (aux->pos > max)
-			max = aux->pos;
-		aux = aux->next;
-	}
-	return (max);
-}
-
-int	main(int argc, char *argv[])
-{
-	t_stack *h_stack_a;
-	t_stack *h_stack_b;
+	t_stack	*h_stack_a;
+	t_stack	*h_stack_b;
 
 	h_stack_a = NULL;
 	h_stack_b = NULL;
-	
 	check_arg(argc, argv);
 	if (argc > 2)
 	{
@@ -68,5 +34,3 @@ int	main(int argc, char *argv[])
 	}
 	return (0);
 }
-
-// gcc -o push_swap push_swap.c check_arg.c utils.c utils_stack.c operation_swap.c operation_push.c operation_rotate.c operation_reverse_rotate.c algo.c long_algo.c find_pos.c

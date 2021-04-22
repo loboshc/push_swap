@@ -6,7 +6,7 @@
 /*   By: dlobos-m <dlobos-m@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 01:03:23 by dlobos-m          #+#    #+#             */
-/*   Updated: 2021/04/22 01:04:02 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2021/04/22 23:25:10 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int	sort_list(int *list_aux, int size)
 {
-	int i;
-	int j;
-	int tmp;
-	
+	int	i;
+	int	j;
+	int	tmp;
+
 	i = 0;
 	while (i < size)
 	{
@@ -37,10 +37,10 @@ int	sort_list(int *list_aux, int size)
 	return (0);
 }
 
-int assign_pos(t_stack **st_a, int *list_aux, int size)
+int	assign_pos(t_stack **st_a, int *list_aux, int size)
 {
-	t_stack *aux;
-	int i;
+	t_stack	*aux;
+	int		i;
 
 	aux = *st_a;
 	while (aux != NULL)
@@ -59,18 +59,18 @@ int assign_pos(t_stack **st_a, int *list_aux, int size)
 
 int	find_pos(t_stack **st_a, int argc, char **argv)
 {
-	int *list_aux;
-	t_stack *aux;
-	int i;
-	
+	int		*list_aux;
+	t_stack	*aux;
+	int		i;
+
 	i = 0;
 	aux = *st_a;
-	list_aux = (int*)malloc(sizeof(int) * argc - 1);
+	list_aux = (int *)malloc(sizeof(int) * argc - 1);
 	argv++;
-	while(aux != NULL)
+	while (aux != NULL)
 	{
 		list_aux[i] = aux->num;
-		aux =  aux->next;
+		aux = aux->next;
 		i++;
 	}
 	if (sort_list(list_aux, argc - 1) != 0)

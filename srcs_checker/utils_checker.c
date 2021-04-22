@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   utils_checker.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dlobos-m <dlobos-m@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/19 18:50:21 by dlobos-m          #+#    #+#             */
-/*   Updated: 2021/04/22 00:57:13 by dlobos-m         ###   ########.fr       */
+/*   Created: 2021/04/22 13:37:15 by dlobos-m          #+#    #+#             */
+/*   Updated: 2021/04/22 23:15:01 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
-int		ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	int	i;
 
@@ -29,7 +29,7 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n)
 	return ((unsigned char)s1[i] - s2[i]);
 }
 
-void execute_instruction(char *instruc, t_stack **st_a, t_stack **st_b)
+void	execute_instruction(char *instruc, t_stack **st_a, t_stack **st_b)
 {
 	if (ft_strncmp(instruc, "sa", 2) == 0)
 		sa(st_a, 1);
@@ -57,12 +57,19 @@ void execute_instruction(char *instruc, t_stack **st_a, t_stack **st_b)
 		exit_error("Error\n");
 }
 
+int	ft_isalpha_lower(int c)
+{
+	if ((c >= 97 && c <= 122))
+		return (1);
+	return (0);
+}
+
 int	check_spaces(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while(str[i] != '\0')
+	while (str[i] != '\0')
 	{
 		if (ft_isalpha_lower(str[i]) == 0)
 			return (1);
@@ -73,8 +80,8 @@ int	check_spaces(char *str)
 
 void	read_and_execute(t_stack **st_a, t_stack **st_b)
 {
-	int i;
-	char *read;
+	int		i;
+	char	*read;
 
 	i = 1;
 	while (i > 0)
@@ -91,25 +98,3 @@ void	read_and_execute(t_stack **st_a, t_stack **st_b)
 			exit_error("Error\n");
 	}
 }
-
-int	main(int argc, char **argv)
-{
-	t_stack	*h_stack_a;
-	t_stack	*h_stack_b;
-
-	h_stack_a = NULL;
-	h_stack_b = NULL;
-	
-	check_arg(argc, argv);
-	if (argc > 2)
-	{
-		load_stack(&h_stack_a, argc, argv);
-		read_and_execute(&h_stack_a, &h_stack_b);
-		if (is_sorted(h_stack_a) == 0 && stack_len(h_stack_b) == 0)
-			printf("OK\n");
-		else
-			printf("KO\n");
-	}
-	return (0);
-}
-// gcc -o checker checker.c get_next_line.c get_next_line_utils.c utils.c utils_stack.c check_arg.c operation_push.c operation_rotate.c operation_swap.c operation_reverse_rotate.c 
