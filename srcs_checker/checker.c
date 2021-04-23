@@ -6,7 +6,7 @@
 /*   By: dlobos-m <dlobos-m@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 18:50:21 by dlobos-m          #+#    #+#             */
-/*   Updated: 2021/04/22 23:14:23 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2021/04/23 17:48:00 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,7 @@ int	main(int argc, char **argv)
 		else
 			printf("KO\n");
 	}
+	free_stack(h_stack_a);
+	free_stack(h_stack_b);
 	return (0);
 }

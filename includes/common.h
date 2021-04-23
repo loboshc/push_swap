@@ -35,5 +35,6 @@ void rr(t_stack **stack_a, t_stack **stack_b, int call);
 void	rra(t_stack **stack_a, int call);
 void	rrb(t_stack **stack_b, int call);
 void rrr(t_stack **stack_a, t_stack ** stack_b, int call);
+void	free_stack(t_stack *stack);
 
 #endif

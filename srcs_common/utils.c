@@ -6,7 +6,7 @@
 /*   By: dlobos-m <dlobos-m@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 11:28:25 by dlobos-m          #+#    #+#             */
-/*   Updated: 2021/04/22 23:23:06 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2021/04/23 17:44:55 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,17 @@ int	is_sorted(t_stack *stack)
 	if (j + 1 == stack_len(stack))
 		return (0);
 	return (1);
+}
+
+void	free_stack(t_stack *stack)
+{
+	t_stack	*aux;
+
+	aux = NULL;
+	while (stack != NULL)
+	{
+		aux = stack->next;
+		free(stack);
+		stack = aux;
+	}
 }

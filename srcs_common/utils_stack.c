@@ -6,7 +6,7 @@
 /*   By: dlobos-m <dlobos-m@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 18:17:51 by dlobos-m          #+#    #+#             */
-/*   Updated: 2021/04/22 23:22:19 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2021/04/23 19:43:02 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	print_stack(t_stack *stack, char letter)
 	t_stack	*aux;
 
 	aux = stack;
-	printf("stack_%c", letter);
+	printf("stack_%c:", letter);
 	while (aux != NULL)
 	{
 		printf(" %d", aux->num);
