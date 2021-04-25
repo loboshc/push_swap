@@ -6,11 +6,54 @@
 /*   By: dlobos-m <dlobos-m@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 19:37:14 by dlobos-m          #+#    #+#             */
-/*   Updated: 2021/04/22 13:27:28 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2021/04/25 22:38:35 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "common.h"
+
+void	select_color(char *instruc, int i, int len, int num)
+{
+	if (instruc[0] == 's' && (i == 0 || i == 1))
+		printf(" \033[32m%d\033[0m", num);
+	else if (instruc[0] == 'r' && instruc[1] != 'r' && i == len - 1)
+		printf(" \033[32m%d\033[0m", num);
+	else if (instruc[0] == 'r' && instruc[1] == 'r' && i == 0)
+		printf(" \033[32m%d\033[0m", num);
+	else if (instruc[0] == 'p' && i == 0)
+		printf(" \033[32m%d\033[0m", num);
+	else
+		printf(" %d", num);
+}
+
+size_t	ft_strlen(const char *s)
+{
+	unsigned long	i;
+	const char		*cad;
+
+	i = 0;
+	cad = s;
+	while (cad[i] != '\0')
+		i++;
+	return (i);
+}
+
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
+{
+	int	i;
+
+	i = 0;
+	if (n == 0)
+		return (0);
+	while ((n - 1) > 0)
+	{
+		if (s1[i] == '\0' || s1[i] != s2[i])
+			return ((unsigned char)s1[i] - s2[i]);
+		i++;
+		n--;
+	}
+	return ((unsigned char)s1[i] - s2[i]);
+}
 
 int	ft_number(const char *n)
 {

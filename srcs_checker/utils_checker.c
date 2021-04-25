@@ -6,32 +6,15 @@
 /*   By: dlobos-m <dlobos-m@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 13:37:15 by dlobos-m          #+#    #+#             */
-/*   Updated: 2021/04/23 19:44:49 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2021/04/25 21:15:40 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
-{
-	int	i;
-
-	i = 0;
-	if (n == 0)
-		return (0);
-	while ((n - 1) > 0)
-	{
-		if (s1[i] == '\0' || s1[i] != s2[i])
-			return ((unsigned char)s1[i] - s2[i]);
-		i++;
-		n--;
-	}
-	return ((unsigned char)s1[i] - s2[i]);
-}
-
 void	execute_instruction(char *instruc, t_stack **st_a, t_stack **st_b)
 {
-	if (ft_strncmp(instruc, "sa", 2) == 0)
+	if (ft_strncmp(instruc, "sa", 3) == 0)
 		sa(st_a, 1);
 	else if (ft_strncmp(instruc, "sb", 3) == 0)
 		sb(st_b, 1);
@@ -95,8 +78,8 @@ void	read_and_execute(t_stack **st_a, t_stack **st_b)
 			{
 				execute_instruction(read, st_a, st_b);
 				printf("\033[32m%s\n\033[0m", read);
-				print_stack(*st_a, 'a');
-				print_stack(*st_b, 'b');
+				print_stack(*st_a, 'a', read);
+				print_stack(*st_b, 'b', read);
 			}
 		}
 		else

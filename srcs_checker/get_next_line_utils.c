@@ -6,23 +6,11 @@
 /*   By: dlobos-m <dlobos-m@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 19:11:19 by dlobos-m          #+#    #+#             */
-/*   Updated: 2021/04/22 01:07:07 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2021/04/25 21:24:02 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-size_t	ft_strlen(const char *s)
-{
-	unsigned long	i;
-	const char		*cad;
-
-	i = 0;
-	cad = s;
-	while (cad[i] != '\0')
-		i++;
-	return (i);
-}
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {

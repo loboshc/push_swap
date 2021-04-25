@@ -6,7 +6,7 @@
 /*   By: dlobos-m <dlobos-m@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 18:17:51 by dlobos-m          #+#    #+#             */
-/*   Updated: 2021/04/23 19:43:02 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2021/04/25 22:38:42 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,16 +41,24 @@ int	add_element_stack(t_stack **stack, int num)
 	return (1);
 }
 
-void	print_stack(t_stack *stack, char letter)
+void	print_stack(t_stack *stack, char letter, char *instruc)
 {
 	t_stack	*aux;
+	int		i;
+	int		x;
 
+	i = 0;
+	x = ft_strlen(instruc);
 	aux = stack;
 	printf("stack_%c:", letter);
-	while (aux != NULL)
+	while (i < stack_len(stack))
 	{
-		printf(" %d", aux->num);
+		if (instruc[x - 1] == letter)
+			select_color(instruc, i, stack_len(stack), aux->num);
+		else
+			printf(" %d", aux->num);
 		aux = aux->next;
+		i++;
 	}
 	printf("\n");
 }

@@ -20,7 +20,7 @@ void	exit_error(char *string);
 int	ft_isdigit(int c);
 int	is_sorted(t_stack *stack);
 int	add_element_stack(t_stack **stack, int num);
-void print_stack(t_stack *stack, char letter);
+void print_stack(t_stack *stack, char letter, char *instruc);
 void	load_stack(t_stack **stack, int argc, char **argv);
 int	stack_len(t_stack *stack);
 t_stack	*last_element(t_stack *stack);
@@ -36,5 +36,8 @@ void	rra(t_stack **stack_a, int call);
 void	rrb(t_stack **stack_b, int call);
 void rrr(t_stack **stack_a, t_stack ** stack_b, int call);
 void	free_stack(t_stack *stack);
+int	ft_strncmp(const char *s1, const char *s2, size_t n);
+size_t	ft_strlen(const char *s);
+void	select_color(char *instruc, int i, int len, int num);
 
 #endif
