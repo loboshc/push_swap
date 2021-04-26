@@ -6,7 +6,7 @@
 /*   By: dlobos-m <dlobos-m@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 13:37:15 by dlobos-m          #+#    #+#             */
-/*   Updated: 2021/04/25 21:15:40 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2021/04/26 18:25:45 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	check_spaces(char *str)
 	return (0);
 }
 
-void	read_and_execute(t_stack **st_a, t_stack **st_b)
+void	read_and_execute(t_stack **st_a, t_stack **st_b, int flag)
 {
 	int		i;
 	char	*read;
@@ -75,12 +75,7 @@ void	read_and_execute(t_stack **st_a, t_stack **st_b)
 		if (!check_spaces(read))
 		{
 			if (i != 0)
-			{
-				execute_instruction(read, st_a, st_b);
-				printf("\033[32m%s\n\033[0m", read);
-				print_stack(*st_a, 'a', read);
-				print_stack(*st_b, 'b', read);
-			}
+				check_execute(st_a, st_b, flag, read);
 		}
 		else
 			exit_error("Error\n");

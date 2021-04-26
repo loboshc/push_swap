@@ -9,6 +9,8 @@
 # include "common.h"
 # include "get_next_line.h"
 
-void	read_and_execute(t_stack **st_a, t_stack **st_b);
+void	read_and_execute(t_stack **st_a, t_stack **st_b, int flag);
+void	check_execute(t_stack **st_a, t_stack **st_b, int flag, char *read);
+void	execute_instruction(char *instruc, t_stack **st_a, t_stack **st_b);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: dlobos-m <dlobos-m@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 18:17:51 by dlobos-m          #+#    #+#             */
-/*   Updated: 2021/04/25 22:38:42 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2021/04/26 18:02:48 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	add_element_stack(t_stack **stack, int num)
 	return (1);
 }
 
-void	print_stack(t_stack *stack, char letter, char *instruc)
+void	print_stack(t_stack *stack, char letter, char *instruc, int flag)
 {
 	t_stack	*aux;
 	int		i;
@@ -53,7 +53,7 @@ void	print_stack(t_stack *stack, char letter, char *instruc)
 	printf("stack_%c:", letter);
 	while (i < stack_len(stack))
 	{
-		if (instruc[x - 1] == letter)
+		if (instruc[x - 1] == letter && (flag == 1 || flag == 3))
 			select_color(instruc, i, stack_len(stack), aux->num);
 		else
 			printf(" %d", aux->num);
@@ -78,12 +78,17 @@ int	stack_len(t_stack *stack)
 	return (len);
 }
 
-void	load_stack(t_stack **stack, int argc, char **argv)
+void	load_stack(t_stack **stack, int argc, char **argv, int flag)
 {
 	int	i;
+	int	x;
 
+	if (flag > 0)
+		x = 1;
+	else
+		x = 0;
 	i = argc - 1;
 	argv++;
-	while (i-- > 0)
+	while (i-- > x)
 		add_element_stack(stack, ft_number(argv[i]));
 }

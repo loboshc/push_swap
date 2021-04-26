@@ -14,14 +14,14 @@ typedef struct s_stack
 	struct	s_stack	*next;
 }t_stack;
 
-void	check_arg(int argc, char **argv);
+void	check_arg(int argc, char **argv, int flag);
 int	ft_number(const char *n);
 void	exit_error(char *string);
 int	ft_isdigit(int c);
 int	is_sorted(t_stack *stack);
 int	add_element_stack(t_stack **stack, int num);
-void print_stack(t_stack *stack, char letter, char *instruc);
-void	load_stack(t_stack **stack, int argc, char **argv);
+void print_stack(t_stack *stack, char letter, char *instruc, int flag);
+void	load_stack(t_stack **stack, int argc, char **argv, int flag);
 int	stack_len(t_stack *stack);
 t_stack	*last_element(t_stack *stack);
 void	sa(t_stack **stack, int call);

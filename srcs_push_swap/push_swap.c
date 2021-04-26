@@ -6,7 +6,7 @@
 /*   By: dlobos-m <dlobos-m@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 11:28:38 by dlobos-m          #+#    #+#             */
-/*   Updated: 2021/04/23 17:49:46 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2021/04/26 17:17:22 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ int	main(int argc, char **argv)
 
 	h_stack_a = NULL;
 	h_stack_b = NULL;
-	check_arg(argc, argv);
+	check_arg(argc, argv, 0);
 	if (argc > 2)
 	{
-		load_stack(&h_stack_a, argc, argv);
+		load_stack(&h_stack_a, argc, argv, 0);
 		if (is_sorted(h_stack_a) == 0)
 			exit(0);
 		if (stack_len(h_stack_a) == 3 || stack_len(h_stack_a) == 2)
