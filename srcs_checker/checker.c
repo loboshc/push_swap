@@ -6,7 +6,7 @@
 /*   By: dlobos-m <dlobos-m@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 18:50:21 by dlobos-m          #+#    #+#             */
-/*   Updated: 2021/04/26 18:24:54 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2021/04/26 19:44:44 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,20 @@ void	check_execute(t_stack **st_a, t_stack **st_b, int flag, char *read)
 	}
 }
 
-void	check_flag(char **argv, int *flag)
+void	check_flag(int argc, char **argv, int *flag)
 {
 	argv++;
-	if (ft_strncmp(argv[0], "-c", 3) == 0)
-		*flag = 1;
-	else if (ft_strncmp(argv[0], "-v", 3) == 0)
-		*flag = 2;
-	else if (ft_strncmp(argv[0], "-cv", 4) == 0)
-		*flag = 3;
-	else
-		*flag = 0;
+	if (argc > 2)
+	{
+		if (ft_strncmp(argv[0], "-c", 3) == 0)
+			*flag = 1;
+		else if (ft_strncmp(argv[0], "-v", 3) == 0)
+			*flag = 2;
+		else if (ft_strncmp(argv[0], "-cv", 4) == 0)
+			*flag = 3;
+		else
+			*flag = 0;
+	}
 }
 
 int	main(int argc, char **argv)
@@ -47,7 +50,7 @@ int	main(int argc, char **argv)
 
 	h_stack_a = NULL;
 	h_stack_b = NULL;
-	check_flag(argv, &flag);
+	check_flag(argc, argv, &flag);
 	check_arg(argc, argv, flag);
 	if (argc > 2)
 	{
