@@ -38,7 +38,7 @@ normi:
 	norminette ./srcs_checker
 	norminette ./srcs_common
 clean:
-	@rm -r $(OBJ_DIR)
+	@rm -rf $(OBJ_DIR)
 fclean: clean
-	@rm $(PUSH) $(CHECKER)
+	@rm -f $(PUSH) $(CHECKER)
 re: fclean all
