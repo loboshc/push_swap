@@ -6,7 +6,7 @@
 /*   By: dlobos-m <dlobos-m@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 19:37:14 by dlobos-m          #+#    #+#             */
-/*   Updated: 2021/04/26 19:16:13 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2021/04/27 16:01:39 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,19 +95,20 @@ void	check_arg(int argc, char **argv, int flag)
 		x = 1;
 	else
 		x = 0;
-	i = -1 + x;
+	i = x;
 	argv++;
-	while (++i < argc - (1 + x))
+	while (i < (argc - 1))
 	{
 		if ((*argv[i] == '-' || *argv[i] == '+') && argv[i][1] == '\0')
 			exit_error("Error\n");
 		tmp = ft_number(argv[i]);
 		j = i - 1;
-		while (argc > j && j >= (0 + x))
+		while (argc > j && j >= x)
 		{
 			if (tmp == ft_number(argv[j]))
-				exit_error("Error\n");
+				exit_error("Error repeter\n");
 			j--;
 		}
+		i++;
 	}
 }
