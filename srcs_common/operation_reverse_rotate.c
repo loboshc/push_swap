@@ -6,7 +6,7 @@
 /*   By: dlobos-m <dlobos-m@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/11 19:18:21 by dlobos-m          #+#    #+#             */
-/*   Updated: 2021/04/22 23:19:34 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2021/04/27 17:55:17 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	rra(t_stack **stack_a, int call)
 	t_stack	*aux;
 	t_stack	*aux_2;
 
-	if (stack_len(*stack_a) > 0)
+	if (stack_len(*stack_a) > 2)
 	{
 		aux_2 = *stack_a;
 		aux = last_element(*stack_a);
@@ -36,7 +36,7 @@ void	rrb(t_stack **stack_b, int call)
 	t_stack	*aux;
 	t_stack	*aux_2;
 
-	if (stack_len(*stack_b) > 0)
+	if (stack_len(*stack_b) > 2)
 	{
 		aux_2 = *stack_b;
 		aux = last_element(*stack_b);
